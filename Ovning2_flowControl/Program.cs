@@ -44,7 +44,7 @@ namespace Ovning2_flowControl
         {
             Console.Write("Ange din ålder: ");
             string age = Console.ReadLine()!;
-            int ageConverted;
+            int ageConverted = 0;
 
             if(isStringValid(age))
             {
@@ -56,6 +56,19 @@ namespace Ovning2_flowControl
             {
                 //String is not valid here, make user try input age again.
             }
+
+            if(ageConverted >= 0 && ageConverted < 20)
+            {
+                Console.WriteLine($"Ungdomspris: 80kr");  
+            }
+            else if (ageConverted > 64)
+            { 
+                Console.WriteLine($"Pensionärspris: 90kr");             
+            }
+            else
+            {
+                Console.WriteLine($"Standardpris: 120kr");  
+            }   
         }
 
         public static bool isStringValid(string prompt)
