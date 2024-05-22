@@ -44,8 +44,43 @@ namespace Ovning2_flowControl
         {
             Console.Write("Ange din ålder: ");
             string age = Console.ReadLine()!;
+            int ageConverted;
 
-            Console.WriteLine($"YouthOrSenior {age}");
+            if(isStringValid(age))
+            {
+                ageConverted = ConvertStringToInt(age);
+                Console.WriteLine($"Age is converted {ageConverted}");  
+
+            }
+            else
+            {
+                //String is not valid here, make user try input age again.
+            }
+        }
+
+        public static bool isStringValid(string prompt)
+        {
+            if(string.IsNullOrWhiteSpace(prompt))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public static int ConvertStringToInt(string str)
+        {
+            if(int.TryParse(str, out int result))
+            {
+                return result;
+            }
+            else 
+            { 
+                return 0;
+            }
+          
         }
     }
 }
