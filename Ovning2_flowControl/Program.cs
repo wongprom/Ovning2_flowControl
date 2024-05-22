@@ -7,9 +7,9 @@ namespace Ovning2_flowControl
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Välkommen till HUVUDMENY!");
+            Console.WriteLine("Välkommen till Vår Bio!");
             Console.WriteLine("Du får nu flera navigerings alternativ, välj ett av alterantiven");
-            Console.WriteLine("Tryck 1 för att fortsätta");
+            Console.WriteLine("Tryck 1 för att Boka biljett");
             Console.WriteLine("Tryck 0 för att avsluta");
 
 
@@ -23,6 +23,12 @@ namespace Ovning2_flowControl
                         isContinue = false;
                         Console.WriteLine("Vill inte fortsätta");
                         break;
+                    case "1":
+
+                        Console.WriteLine("För bästa service och pris, behöver vi veta din ålder.");
+                        YouthOrSenior();
+                        
+                        break;
                     default:
                         Console.Clear();
                         Console.WriteLine("Du har valt ett alternativ som inte finns, prova igen");
@@ -32,6 +38,14 @@ namespace Ovning2_flowControl
                 }
             }
             while (isContinue);
+        }
+
+        public static void YouthOrSenior()
+        {
+            Console.Write("Ange din ålder: ");
+            string age = Console.ReadLine()!;
+
+            Console.WriteLine($"YouthOrSenior {age}");
         }
     }
 }
