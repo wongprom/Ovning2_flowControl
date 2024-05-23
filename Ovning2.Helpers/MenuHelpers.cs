@@ -6,6 +6,7 @@
         public const string BuyTicket = "1";
         public const string BuyTickets = "2";
         public const string Repeat10Times = "3";
+        public const string SplitSentence = "4";
     }
 }
 

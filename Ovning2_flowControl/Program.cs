@@ -13,13 +13,14 @@ namespace Ovning2_flowControl
             Console.WriteLine($"Tryck {MenuHelpers.BuyTicket} för att Köpa en biljett.");
             Console.WriteLine($"Tryck {MenuHelpers.BuyTickets} för att Köpa flera biljetter.");
             Console.WriteLine($"Tryck {MenuHelpers.Repeat10Times} för att repetera 10 gånger.");
+            Console.WriteLine($"Tryck {MenuHelpers.SplitSentence} för att plocka ur tredje ordet i en mening.");
             Console.WriteLine($"Eller Tryck 0 för att avsluta.");
 
 
             bool isContinue = true;
             do
             {
-                string input = Console.ReadLine()!;
+                string input = Console.ReadLine() ?? string.Empty;
                 switch (input)
                 {
                     case MenuHelpers.Quit:
@@ -38,6 +39,10 @@ namespace Ovning2_flowControl
                         Console.WriteLine("Nu ska vi repetera valfri text 10 gånger.");
                         Repeate();
                         break;
+                    case MenuHelpers.SplitSentence:
+                        Console.WriteLine("Nu ska vi hitta tredje ordet.");
+                        ThirdWord();
+                        break;
                     default:
                         Console.Clear();
                         Console.WriteLine("Du har valt ett alternativ som inte finns, prova igen");
@@ -47,6 +52,11 @@ namespace Ovning2_flowControl
                 }
             }
             while (isContinue);
+        }
+
+        private static void ThirdWord()
+        {
+            Console.WriteLine("third word");
         }
 
         private static void Repeate()
@@ -85,7 +95,7 @@ namespace Ovning2_flowControl
         public static void YouthOrSenior()
         {
             Console.Write("Ange din ålder: ");
-            string age = Console.ReadLine()!;
+            string age = Console.ReadLine() ?? string.Empty;
             int ageConverted = 0;
 
             if(isStringValid(age))
