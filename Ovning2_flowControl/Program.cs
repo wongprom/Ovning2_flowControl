@@ -29,17 +29,14 @@ namespace Ovning2_flowControl
                     case MenuHelpers.BuyTicket:
                         Console.WriteLine("För bästa service och pris, behöver vi veta din ålder.");
                         BuyTicket();
-                        //YouthOrSenior();
                         break;
                     case MenuHelpers.BuyTickets:
                         Console.WriteLine("För bästa service och pris, behöver vi information");
                         BuyTickets();
-                        //YouthOrSenior();
                         break;
                     case MenuHelpers.Repeat10Times:
                         Console.WriteLine("Nu ska vi repetera valfri text 10 gånger.");
                         Repeate();
-                        //YouthOrSenior();
                         break;
                     default:
                         Console.Clear();
@@ -60,9 +57,7 @@ namespace Ovning2_flowControl
             {
                 Console.Write($"{i + 1}.{input},");
             }
-
         }
-
         private static void BuyTickets()
         {
             uint totalTickets = Util.AskForUInt("Hur många biljetter vill ni köpa?");
