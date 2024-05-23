@@ -9,9 +9,10 @@ namespace Ovning2_flowControl
         static void Main(string[] args)
         {
             Console.WriteLine("Välkommen till Vår Bio!");
-            Console.WriteLine("Du får nu flera navigerings alternativ, välj ett av alterantiven");
-            Console.WriteLine("Tryck 1 för att Boka biljett");
-            Console.WriteLine("Tryck 0 för att avsluta");
+            Console.WriteLine("Du får nu flera navigerings alternativ, välj ett av alterantiven.");
+            Console.WriteLine("Tryck 1 för att Köpa en biljett.");
+            Console.WriteLine("Tryck 2 för att Köpa flera biljetter.");
+            Console.WriteLine("Eller Tryck 0 för att avsluta.");
 
 
             bool isContinue = true;
@@ -29,6 +30,11 @@ namespace Ovning2_flowControl
                         BuyTicket();
                         //YouthOrSenior();
                         break;
+                    case MenuHelpers.BuyTickets:
+                        Console.WriteLine("För bästa service och pris, behöver vi information");
+                        BuyTickets();
+                        //YouthOrSenior();
+                        break;
                     default:
                         Console.Clear();
                         Console.WriteLine("Du har valt ett alternativ som inte finns, prova igen");
@@ -38,6 +44,12 @@ namespace Ovning2_flowControl
                 }
             }
             while (isContinue);
+        }
+
+        private static void BuyTickets()
+        {
+            uint totalTickets = Util.AskForUInt("Hur många biljetter vill ni köpa?");
+            Console.WriteLine($"antal biljetter: {totalTickets}");
         }
 
         private static void BuyTicket()
