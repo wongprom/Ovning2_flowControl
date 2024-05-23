@@ -26,7 +26,8 @@ namespace Ovning2_flowControl
                         break;
                     case MenuHelpers.BuyTicket:
                         Console.WriteLine("För bästa service och pris, behöver vi veta din ålder.");
-                        YouthOrSenior();
+                        BuyTicket();
+                        //YouthOrSenior();
                         break;
                     default:
                         Console.Clear();
@@ -37,6 +38,11 @@ namespace Ovning2_flowControl
                 }
             }
             while (isContinue);
+        }
+
+        private static void BuyTicket()
+        {
+            uint age = Util.AskForUInt("Vad är din ålder?");
         }
 
         public static void YouthOrSenior()
