@@ -49,7 +49,18 @@ namespace Ovning2_flowControl
         private static void BuyTickets()
         {
             uint totalTickets = Util.AskForUInt("Hur många biljetter vill ni köpa?");
-            Console.WriteLine($"antal biljetter: {totalTickets}");
+            Console.WriteLine($"Antal biljetter: {totalTickets}");
+            uint totalTicketsCost = 0;
+
+            for (int i = 0; i < totalTickets; i++)
+            {
+                uint age = Util.AskForUInt($"Person nr {i + 1}: Vad är din ålder?");
+                string typeOfTicket = Util.Ticket(age);
+                uint ticketPrice = Util.StringToUint(string.Concat(typeOfTicket.Where(Char.IsDigit)));
+                totalTicketsCost += ticketPrice;
+
+            }
+            Console.WriteLine($"Total kostnad för {totalTickets} biljetter blir {totalTicketsCost}kr.");
         }
 
         private static void BuyTicket()

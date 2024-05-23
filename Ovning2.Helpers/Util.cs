@@ -46,6 +46,21 @@ namespace Ovning2.Helpers
 
             } while (true);
         }
+
+        public static uint StringToUint(string str)
+        {
+            do
+            {
+
+                if (uint.TryParse(str, out uint result))
+                {
+                    return result;
+                }
+
+            } while (true);
+        }
+
+
         public static string Ticket(uint age)
         {
             string temp = string.Empty;
