@@ -43,6 +43,8 @@ namespace Ovning2_flowControl
         private static void BuyTicket()
         {
             uint age = Util.AskForUInt("Vad är din ålder?");
+            string typeOfTicket = Util.Ticket(age);
+            Console.WriteLine(typeOfTicket);
         }
 
         public static void YouthOrSenior()

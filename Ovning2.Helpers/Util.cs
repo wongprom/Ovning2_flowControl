@@ -46,6 +46,25 @@ namespace Ovning2.Helpers
 
             } while (true);
         }
+        public static string Ticket(uint age)
+        {
+            string temp = string.Empty;
+
+           if(age < 20)
+            {
+                temp = "Ungdomspris: 80kr";
+            }
+           else if(age <= 64)
+            {
+                temp = "Standardpris: 120kr"; 
+            }
+            else
+            {
+                temp = "Pensionärspris: 90kr";
+
+            }
+            return temp;
+        }
 
 
     }
