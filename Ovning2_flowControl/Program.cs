@@ -14,7 +14,7 @@ namespace Ovning2_flowControl
             Console.WriteLine($"Tryck {MenuHelpers.BuyTickets} för att Köpa flera biljetter.");
             Console.WriteLine($"Tryck {MenuHelpers.Repeat10Times} för att repetera 10 gånger.");
             Console.WriteLine($"Tryck {MenuHelpers.SplitSentence} för att plocka ur tredje ordet i en mening.");
-            Console.WriteLine($"Eller Tryck 0 för att avsluta.");
+            Console.WriteLine($"Eller Tryck {MenuHelpers.Quit} för att avsluta.");
 
 
             bool isContinue = true;
@@ -46,8 +46,11 @@ namespace Ovning2_flowControl
                     default:
                         Console.Clear();
                         Console.WriteLine("Du har valt ett alternativ som inte finns, prova igen");
-                        Console.WriteLine("Tryck 1 för att fortsätta");
-                        Console.WriteLine("Tryck 0 för att avsluta");
+                        Console.WriteLine($"Tryck {MenuHelpers.BuyTicket} för att Köpa en biljett.");
+                        Console.WriteLine($"Tryck {MenuHelpers.BuyTickets} för att Köpa flera biljetter.");
+                        Console.WriteLine($"Tryck {MenuHelpers.Repeat10Times} för att repetera 10 gånger.");
+                        Console.WriteLine($"Tryck {MenuHelpers.SplitSentence} för att plocka ur tredje ordet i en mening.");
+                        Console.WriteLine($"Eller Tryck {MenuHelpers.Quit} för att avsluta.");
                         break;
                 }
             }
@@ -56,7 +59,10 @@ namespace Ovning2_flowControl
 
         private static void ThirdWord()
         {
-            Console.WriteLine("third word");
+            int i = 2;
+            string input = Util.AskForString("Skriv en mening som innehåller minst TRE ord: ");
+            string[] splitInput = input.Split(' ');
+            Console.WriteLine(splitInput[i]);
         }
 
         private static void Repeate()
@@ -90,62 +96,6 @@ namespace Ovning2_flowControl
             uint age = Util.AskForUInt("Vad är din ålder?");
             string typeOfTicket = Util.Ticket(age);
             Console.WriteLine(typeOfTicket);
-        }
-
-        public static void YouthOrSenior()
-        {
-            Console.Write("Ange din ålder: ");
-            string age = Console.ReadLine() ?? string.Empty;
-            int ageConverted = 0;
-
-            if(isStringValid(age))
-            {   
-                ageConverted = ConvertStringToInt(age);
-                Console.WriteLine($"Age is converted {ageConverted}");  
-
-            }
-            else
-            {
-                //String is not valid here, make user try input age again.
-            }
-
-            if(ageConverted >= 0 && ageConverted < 20)
-            {
-                Console.WriteLine($"Ungdomspris: 80kr");  
-            }
-            else if (ageConverted > 64)
-            { 
-                Console.WriteLine($"Pensionärspris: 90kr");             
-            }
-            else
-            {
-                Console.WriteLine($"Standardpris: 120kr");  
-            }   
-        }
-
-        public static bool isStringValid(string prompt)
-        {
-            if(string.IsNullOrWhiteSpace(prompt))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-       
-        public static int ConvertStringToInt(string str)
-        {
-            if(int.TryParse(str, out int result))
-            {
-                return result;
-            }
-            else 
-            { 
-                return 0;
-            }
-          
         }
     }
 }
