@@ -8,11 +8,12 @@ namespace Ovning2_flowControl
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Välkommen till Vår Bio!");
-            Console.WriteLine("Du får nu flera navigerings alternativ, välj ett av alterantiven.");
-            Console.WriteLine("Tryck 1 för att Köpa en biljett.");
-            Console.WriteLine("Tryck 2 för att Köpa flera biljetter.");
-            Console.WriteLine("Eller Tryck 0 för att avsluta.");
+            Console.WriteLine($"Välkommen till Vår Bio!");
+            Console.WriteLine($"Du får nu flera navigerings alternativ, välj ett av alterantiven.");
+            Console.WriteLine($"Tryck {MenuHelpers.BuyTicket} för att Köpa en biljett.");
+            Console.WriteLine($"Tryck {MenuHelpers.BuyTickets} för att Köpa flera biljetter.");
+            Console.WriteLine($"Tryck {MenuHelpers.Repeat10Times} för att repetera 10 gånger.");
+            Console.WriteLine($"Eller Tryck 0 för att avsluta.");
 
 
             bool isContinue = true;
@@ -35,6 +36,11 @@ namespace Ovning2_flowControl
                         BuyTickets();
                         //YouthOrSenior();
                         break;
+                    case MenuHelpers.Repeat10Times:
+                        Console.WriteLine("Nu ska vi repetera valfri text 10 gånger.");
+                        Repeate();
+                        //YouthOrSenior();
+                        break;
                     default:
                         Console.Clear();
                         Console.WriteLine("Du har valt ett alternativ som inte finns, prova igen");
@@ -44,6 +50,17 @@ namespace Ovning2_flowControl
                 }
             }
             while (isContinue);
+        }
+
+        private static void Repeate()
+        {
+            string input = Util.AskForString("Skriv text du vill repetera: ");
+            int repeatNumTimes = 10;
+            for (int i = 0; i < repeatNumTimes; i++)
+            {
+                Console.Write($"{i + 1}.{input},");
+            }
+
         }
 
         private static void BuyTickets()
