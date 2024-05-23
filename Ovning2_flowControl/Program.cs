@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Ovning2.Helpers;
+using System.Diagnostics;
 using System.Linq.Expressions;
 
 namespace Ovning2_flowControl
@@ -19,15 +20,13 @@ namespace Ovning2_flowControl
                 string input = Console.ReadLine()!;
                 switch (input)
                 {
-                    case "0":
+                    case MenuHelpers.Quit:
                         isContinue = false;
                         Console.WriteLine("Vill inte fortsätta");
                         break;
-                    case "1":
-
+                    case MenuHelpers.BuyTicket:
                         Console.WriteLine("För bästa service och pris, behöver vi veta din ålder.");
                         YouthOrSenior();
-                        
                         break;
                     default:
                         Console.Clear();
@@ -47,7 +46,7 @@ namespace Ovning2_flowControl
             int ageConverted = 0;
 
             if(isStringValid(age))
-            {
+            {   
                 ageConverted = ConvertStringToInt(age);
                 Console.WriteLine($"Age is converted {ageConverted}");  
 
@@ -82,7 +81,7 @@ namespace Ovning2_flowControl
                 return true;
             }
         }
-
+       
         public static int ConvertStringToInt(string str)
         {
             if(int.TryParse(str, out int result))
