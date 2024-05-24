@@ -59,10 +59,29 @@ namespace Ovning2_flowControl
 
         private static void ThirdWord()
         {
-            int i = 2;
-            string input = Util.AskForString("Skriv en mening som innehåller minst TRE ord: ");
-            string[] splitInput = input.Split(' ');
-            Console.WriteLine(splitInput[i]);
+            int minimumWords = 3;
+            int wordIndex = 2;
+            string prompt = $"Skriv en mening som innehåller minst {minimumWords} ord: ";
+            bool lessThenMinimumWords = true;
+            string input = Util.AskForString(prompt);
+
+            do
+            {
+                string[] splitInput = input.Split(' ');
+
+                if(input.Split(' ').Length < minimumWords)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    prompt = $"Din mening {input.ToUpper()} innehåller {splitInput.Length} ord, vilket är mindre än {minimumWords} ord, försök igen!";
+                    input = Util.AskForString(prompt);
+                }
+                else
+                {
+                    Console.ResetColor();
+                    Console.WriteLine($"Ord {wordIndex + 1} för din mening är: {splitInput[wordIndex]}");
+                    lessThenMinimumWords = false;
+                }
+            } while (lessThenMinimumWords);
         }
 
         private static void Repeate()
